@@ -68,6 +68,7 @@ export default function Filter() {
                 key={status.id}
                 value={status.id}
                 id={`tab-${status.id}`}
+                aria-selected={status.isActive}
                 aria-controls={`panel-${status.id}`}
                 className={`flex items-center rounded-md font-semibold py-2 ${
                   status.isActive
