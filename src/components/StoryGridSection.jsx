@@ -126,16 +126,23 @@ export default function StoryGridSection() {
                 </p>
               </div>
               <p
-                className={`text-xs font-semibold ${story.statusColor} rounded px-3.5 py-2 w-fit`}
+                className={`text-xs font-semibold ${story.statusColor} rounded px-3 py-2 w-fit`}
               >
                 {story.status}
               </p>
             </div>
             <div className="flex w-full gap-2 mt-2">
-              <Button className="flex-1 bg-[#E8E9FF] text-[#1C1442] hover:bg-[#E8E9FF]/90 font-semibold">
+              <Button
+                className="flex-1 bg-[#E8E9FF] text-[#1C1442] hover:bg-[#E8E9FF]/90 font-semibold"
+                aria-label={`View story titled ${story.title}`}
+              >
                 View
               </Button>
-              <Button className="bg-[#fafafa] hover:bg-[#e9e9e9]">
+
+              <Button
+                className="bg-[#fafafa] hover:bg-[#e9e9e9]"
+                aria-label={`More options for ${story.title}`}
+              >
                 <Ellipsis className="text-[#1C1442]" strokeWidth={4} />
               </Button>
             </div>
