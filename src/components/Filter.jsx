@@ -67,14 +67,15 @@ export default function Filter() {
               <TabsTrigger
                 key={status.id}
                 value={status.id}
-                className={`flex items-center rounded-md font-semibold py-2
-                  ${
-                    status.isActive
-                      ? "bg-[#1c1442] text-white data-[state=active]:bg-[#1c1442] data-[state=active]:text-white"
-                      : "bg-[#e7e8ef] text-[#212121] data-[state=active]:bg-[#1c1442] data-[state=active]:text-white"
-                  }`}
+                id={`tab-${status.id}`}
+                aria-controls={`panel-${status.id}`}
+                className={`flex items-center rounded-md font-semibold py-2 ${
+                  status.isActive
+                    ? "bg-[#1c1442] text-white data-[state=active]:bg-[#1c1442] data-[state=active]:text-white"
+                    : "bg-[#e7e8ef] text-[#212121] data-[state=active]:bg-[#1c1442] data-[state=active]:text-white"
+                }`}
               >
-                <span className="tracking-[-0.08px]">{status.label} </span>
+                <span className="tracking-[-0.08px]">{status.label}</span>
                 <span
                   className={`tracking-[-0.08px] ${
                     status.isActive ? "text-[#e8e8e8]" : "text-[#a0a3bd]"
