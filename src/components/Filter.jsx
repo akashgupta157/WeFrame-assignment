@@ -16,11 +16,13 @@ const contentStatuses = [
 
 export default function Filter() {
   return (
-    <div role="region" aria-label="Content management controls">
+    <>
       <section className="flex flex-col sm:flex-row sm:justify-end gap-4 sm:gap-12 bg-white rounded-[10px] p-4 w-full">
         <div className="flex items-center gap-3 w-full sm:w-auto">
           <div className="relative flex-1 sm:flex-none">
-            <label htmlFor="search-input" className="sr-only">Search content</label>
+            <label htmlFor="search-input" className="sr-only">
+              Search content
+            </label>
             <Input
               id="search-input"
               className="w-full md:w-[300px] bg-[#f8fafb] rounded-[10px] pl-10 border border-[#a0a3bd]"
@@ -29,17 +31,19 @@ export default function Filter() {
               aria-describedby="search-description"
             />
             <SearchIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-grey w-[18px] h-[18px]" />
-            <span id="search-description" className="sr-only">Search through your content</span>
+            <span id="search-description" className="sr-only">
+              Search through your content
+            </span>
           </div>
 
           <div className="flex gap-2">
-            <Button 
+            <Button
               className="bg-[#E7E8EF] hover:bg-[#E7E8EF]/50 p-2 sm:px-2 min-h-[44px] min-w-[44px]"
               aria-label="Date filter"
             >
               <Image src={calendar} alt="" width={22} height={22} />
             </Button>
-            <Button 
+            <Button
               className="bg-[#E7E8EF] hover:bg-[#E7E8EF]/50 p-2 sm:px-2 min-h-[44px] min-w-[44px]"
               aria-label="Filter options"
             >
@@ -48,7 +52,7 @@ export default function Filter() {
           </div>
         </div>
 
-        <Button 
+        <Button
           className="bg-[#1c1442] hover:bg-[#1c1442]/90 rounded-[10px] font-semibold text-lg w-full sm:w-auto min-h-[44px]"
           aria-label="Add new story"
         >
@@ -63,17 +67,19 @@ export default function Filter() {
               <TabsTrigger
                 key={status.id}
                 value={status.id}
-                className={`flex items-center rounded-md font-semibold py-2 px-4 text-sm ${
-                  status.isActive
-                    ? "bg-[#1c1442] text-white"
-                    : "bg-[#e7e8ef] text-[#212121]"
-                }`}
-                aria-selected={status.isActive}
-                aria-controls={`tabpanel-${status.id}`}
-                id={`tab-${status.id}`}
+                className={`flex items-center rounded-md font-semibold py-2
+                  ${
+                    status.isActive
+                      ? "bg-[#1c1442] text-white data-[state=active]:bg-[#1c1442] data-[state=active]:text-white"
+                      : "bg-[#e7e8ef] text-[#212121] data-[state=active]:bg-[#1c1442] data-[state=active]:text-white"
+                  }`}
               >
-                <span className="tracking-[-0.08px]">{status.label}</span>
-                <span className={`ml-1 ${status.isActive ? "text-[#e8e8e8]" : "text-[#a0a3bd]"}`}>
+                <span className="tracking-[-0.08px]">{status.label} </span>
+                <span
+                  className={`tracking-[-0.08px] ${
+                    status.isActive ? "text-[#e8e8e8]" : "text-[#a0a3bd]"
+                  }`}
+                >
                   ({status.count.toLocaleString()})
                 </span>
               </TabsTrigger>
@@ -81,6 +87,6 @@ export default function Filter() {
           </TabsList>
         </Tabs>
       </div>
-    </div>
+    </>
   );
 }
